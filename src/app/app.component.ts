@@ -27,8 +27,7 @@ export class AppComponent {
   }
 
   getLanguages() {
-    this.http.get("http://localhost:25525/tea/languages")
-    //this.http.get("https://tea-service.herokuapp.com/tea/languages")
+    this.http.get("https://tea-service-api.herokuapp.com/tea/languages")
       .map((res: Response) => res.json())
       .subscribe(
         languages => {
@@ -43,8 +42,7 @@ export class AppComponent {
   }
 
   getQuestions() {
-    this.http.get("http://localhost:25525/tea/questions")
-    //return this.http.get("https://tea-service.herokuapp.com/tea/questions")
+    this.http.get("https://tea-service-api.herokuapp.com/tea/questions")
       .map((res: Response) => res.json())
       .subscribe(
         questions => {
@@ -64,8 +62,7 @@ export class AppComponent {
   }
 
   getQuestionInfo(question) {
-    this.http.get("http://localhost:25525/tea/question/" + question)
-    //return this.http.get("https://tea-service.herokuapp.com/tea/questions")
+    this.http.get("https://tea-service-api.herokuapp.com/tea/questions")
       .map((res: Response) => res.json())
       .subscribe(
         info => {
@@ -83,7 +80,7 @@ export class AppComponent {
   answerQuestion(codeToSend) {
     let body = JSON.stringify({code: codeToSend});
     console.log("BODY: " + body);
-    this.http.post("http://localhost:25525/tea/answer/" + this.currentQuestion.endpoint, body)
+    this.http.post("https://tea-service-api.herokuapp.com" + this.currentQuestion.endpoint, body)
       .map((res: Response) => res.json())
       .subscribe(
         answer => {
