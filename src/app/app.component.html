@@ -1,0 +1,31 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="row">
+    <div style="text-align:center">
+      <h1>
+        Welcome to {{title}}!
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <ul>
+      <li *ngFor="let c of questions" (click)="selectQuestion(c)">{{c}}</li>
+    </ul>
+    <div id="problemArea">
+      <div id="codingProblem">
+        <textarea #codeText>{{codeBoilerPlate}}</textarea>
+        <button (click)="answerQuestion(codeText.value)">Submit</button>
+      </div>
+      <div *ngIf="!!lastAnswer" id="codingResult">
+        <ul>
+          <li *ngFor="let result of lastAnswer.results">
+            <ul>
+              <li *ngFor="let p of result.prints"></li>
+              <li>{{result.result}}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
