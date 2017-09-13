@@ -62,7 +62,7 @@ export class AppComponent {
   }
 
   getQuestionInfo(question) {
-    this.http.get("https://tea-service-api.herokuapp.com/tea/questions/" + question.toLowerCase())
+    this.http.get("https://tea-service-api.herokuapp.com/tea/question/" + question.toLowerCase())
       .map((res: Response) => res.json())
       .subscribe(
         info => {
