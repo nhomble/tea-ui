@@ -80,7 +80,7 @@ export class AppComponent {
   answerQuestion(codeToSend) {
     let body = JSON.stringify({code: codeToSend});
     console.log("BODY: " + body);
-    this.http.post("https://tea-service-api.herokuapp.com" + this.currentQuestion.endpoint, body)
+    this.http.post("https://tea-service-api.herokuapp.com/tea/answer/" + this.currentQuestion.endpoint, body)
       .map((res: Response) => res.json())
       .subscribe(
         answer => {
