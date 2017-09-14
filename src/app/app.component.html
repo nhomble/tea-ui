@@ -16,12 +16,12 @@
   <div class="container">
     <div class="row">
       <ul>
-        <li *ngFor="let c of questions" (click)="selectQuestion(c)">{{c}}</li>
+        <li *ngFor="let c of questions" (click)="selectQuestion(c)"><button type="button" class="btn btn-default">{{c}}</button></li>
       </ul>
       <div id="problemArea">
         <div id="codingProblem">
           <textarea #codeText>{{codeBoilerPlate}}</textarea>
-          <button (click)="answerQuestion(codeText.value)">Submit</button>
+          <button type="button" class="btn btn-primary" (click)="answerQuestion(codeText.value)">Submit</button>
         </div>
         <div *ngIf="!!lastAnswer" id="codingResult">
           <ul>
