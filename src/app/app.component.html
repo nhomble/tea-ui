@@ -30,7 +30,7 @@
         </div>
         <div id="problemArea">
           <div id="codingProblem">
-            <textarea #codeText>{{codeBoilerPlate}}</textarea>
+            <textarea rows="10" #codeText>{{codeBoilerPlate}}</textarea>
             <button type="button" class="btn btn-primary" (click)="answerQuestion(codeText.value)">Submit</button>
           </div>
           <div *ngIf="!!lastAnswer" id="codingResult">
