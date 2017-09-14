@@ -18,7 +18,7 @@ export class AppComponent {
   languages = [];
   currentQuestion = null;
   lastAnswer = null;
-
+  answerInProgress = false;
   nav = null;
 
   constructor(private http: Http) {
@@ -83,6 +83,7 @@ export class AppComponent {
   }
 
   answerQuestion(codeToSend) {
+    this.answerInProgress = true;
     let body = JSON.stringify({code: codeToSend});
     console.log("BODY: " + body);
     this.http.post("https://tea-service-api.herokuapp.com/tea/answer/" + this.currentQuestion.endpoint, body)
@@ -91,10 +92,12 @@ export class AppComponent {
         answer => {
           this.lastAnswer = answer;
           console.log(answer);
+          this.answerInProgress = false;
         },
         err => {
           console.log("Could not answer question");
           console.log(err);
+          this.answerInProgress = false;
         }
       );
   }
