@@ -1,6 +1,7 @@
 import{Component}from'@angular/core';
 import {Http, Response}from '@angular/http';
 import 'rxjs/add/operator/map';
+import {NavComponent} from "./app.nav";
 
 @Component({
   selector: 'app-root',
@@ -18,12 +19,16 @@ export class AppComponent {
   currentQuestion = null;
   lastAnswer = null;
 
+  nav = null;
+
   constructor(private http: Http) {
     console.log("app-root constructor");
     this.getQuestions();
     this.getLanguages();
     console.log(this.languages);
     console.log(this.questions);
+
+    this.nav = new NavComponent();
   }
 
   getLanguages() {
