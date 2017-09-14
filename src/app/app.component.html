@@ -23,22 +23,22 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <ul>
-          <li *ngFor="let c of questions" (click)="selectQuestion(c)">
-            <button type="button" class="btn btn-default">{{c}}</button>
-          </li>
-        </ul>
+        <div class="list-group">
+          <a href="#" class="list-group-item btn btn-default" *ngFor="let c of questions" (click)="selectQuestion(c)">
+            {{c}}
+          </a>
+        </div>
         <div id="problemArea">
           <div id="codingProblem">
             <textarea #codeText>{{codeBoilerPlate}}</textarea>
             <button type="button" class="btn btn-primary" (click)="answerQuestion(codeText.value)">Submit</button>
           </div>
           <div *ngIf="!!lastAnswer" id="codingResult">
-            <ul>
-              <li *ngFor="let result of lastAnswer.results">
-                <ul>
-                  <li *ngFor="let p of result.prints"></li>
-                  <li>{{result.result}}</li>
+            <ul class="list-group">
+              <li class="list-unstyled" *ngFor="let result of lastAnswer.results">
+                <ul class="list-group">
+                  <li class="list-group-item" *ngFor="let p of result.prints"></li>
+                  <li class="list-group-item">{{result.result}}</li>
                 </ul>
               </li>
             </ul>
