@@ -102,4 +102,21 @@ export class AppComponent {
         }
       );
   }
+
+  textKeydown(event: any, coderPad: any) {
+    if (event.key === "Tab") {
+      let val = coderPad.value;
+      let start = coderPad.selectionStart;
+      let end = coderPad.selectionEnd;
+
+      let tab = "\t";
+      coderPad.value = this.codeText = val.substring(0, start) + tab + val.substring(end);
+
+      coderPad.selectionStart = coderPad.selectionEnd = (start + tab.length);
+      coderPad.setSelectionRange(coderPad.selectionStart, coderPad.selectionEnd);
+
+      coderPad.focus();
+      return false;
+    }
+  }
 }

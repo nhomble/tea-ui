@@ -30,8 +30,13 @@
         </div>
         <div id="problemArea">
           <div id="codingProblem">
-            <textarea rows="10" placeholder="Pick a coding problem you want to complete"
-                      [(ngModel)]="codeText"></textarea>
+            <textarea #coderPad
+                      rows="10"
+                      placeholder="Pick a coding problem you want to complete"
+                      [(ngModel)]="codeText"
+                      (keydown)="textKeydown($event, coderPad)"
+            >
+            </textarea>
             <button type="button" class="btn btn-primary" (click)="answerQuestion()">Submit</button>
           </div>
           <br/>
