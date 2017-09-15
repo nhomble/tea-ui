@@ -37,7 +37,11 @@
                       (keydown)="textKeydown($event, coderPad)"
             >
             </textarea>
-            <button type="button" class="btn btn-primary" (click)="answerQuestion()">Submit</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    (click)="answerQuestion()"
+                    [ngClass]="{'disabled': !this.canAnswer()}"
+            >Submit</button>
           </div>
           <br/>
           <div *ngIf="!!lastAnswer" id="codingResult">

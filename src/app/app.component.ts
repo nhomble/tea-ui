@@ -83,7 +83,15 @@ export class AppComponent {
       );
   }
 
+  canAnswer(){
+    return this.codeText.length > 0 && this.currentQuestion !== null;
+  }
+
   answerQuestion() {
+    if(!this.canAnswer()){
+      console.log("won't answer");
+      return;
+    }
     this.answerInProgress = true;
     let body = JSON.stringify({code: this.codeText});
     console.log("BODY: " + body);
