@@ -73,6 +73,7 @@ export class AppComponent {
         info => {
           console.log("Got a response for question info " + info);
           this.currentQuestion = info;
+          console.log(info);
           this.codeText = this.currentQuestion.boilerPlate;
         },
         err => {

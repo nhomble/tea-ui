@@ -30,18 +30,29 @@
         </div>
         <div id="problemArea">
           <div id="codingProblem">
-            <textarea rows="10" placeholder="Pick a coding problem you want to complete" [(ngModel)]="codeText"></textarea>
+            <textarea rows="10" placeholder="Pick a coding problem you want to complete"
+                      [(ngModel)]="codeText"></textarea>
             <button type="button" class="btn btn-primary" (click)="answerQuestion()">Submit</button>
           </div>
+          <br/>
           <div *ngIf="!!lastAnswer" id="codingResult">
-            <ul class="list-group">
-              <li class="list-unstyled" *ngFor="let result of lastAnswer.results">
-                <ul class="list-group">
-                  <li class="list-group-item" *ngFor="let p of result.prints"></li>
-                  <li class="list-group-item">{{result.result}} Input: {{result.argList.join(', ')}} Expected: {{result.expected}}</li>
-                </ul>
-              </li>
-            </ul>
+            <table class="table">
+              <thead>
+              <th>Result</th>
+              <th>Your return</th>
+              <th>Input</th>
+              <th>Expected Output</th>
+              <th>stdout</th>
+              </thead>
+              <tr *ngFor="let result of lastAnswer.results"
+                  [ngClass]="{ 'success': result.result == 'SUCCESS', 'danger': result.result !== 'SUCCESS' }">
+                <td>{{result.result}}</td>
+                <td>{{result.output}}</td>
+                <td>{{result.argList.join(', ')}}</td>
+                <td>{{result.expected}}</td>
+                <td>{{result.prints.join('\n')}}</td>
+              </tr>
+            </table>
           </div>
           <div *ngIf="answerInProgress">
             <h4>Be patient, we are still running the code.</h4>
