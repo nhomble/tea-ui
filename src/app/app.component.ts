@@ -12,7 +12,7 @@ import {NavComponent} from "./app.nav";
   ]
 })
 export class AppComponent {
-  codeBoilerPlate = 'Pick a coding problem you want to complete';
+  codeText = "";
   title = 'Tea Service';
   questions = [];
   languages = [];
@@ -73,7 +73,7 @@ export class AppComponent {
         info => {
           console.log("Got a response for question info " + info);
           this.currentQuestion = info;
-          this.codeBoilerPlate = this.currentQuestion.boilerPlate;
+          this.codeText = this.currentQuestion.boilerPlate;
         },
         err => {
           console.log("Could not get info for " + question);
@@ -82,9 +82,9 @@ export class AppComponent {
       );
   }
 
-  answerQuestion(codeToSend) {
+  answerQuestion() {
     this.answerInProgress = true;
-    let body = JSON.stringify({code: codeToSend});
+    let body = JSON.stringify({code: this.codeText});
     console.log("BODY: " + body);
     this.http.post("https://tea-service-api.herokuapp.com/tea/answer/" + this.currentQuestion.endpoint, body)
       .map((res: Response) => res.json())
