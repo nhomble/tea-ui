@@ -1,7 +1,7 @@
 import{Component}from'@angular/core';
 import {Http, Response}from '@angular/http';
 import 'rxjs/add/operator/map';
-import {NavComponent} from "./app.nav";
+import {NavComponent} from "./nav.component";
 
 @Component({
   selector: 'app-root',

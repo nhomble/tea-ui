@@ -5,9 +5,9 @@ import {Component} from "@angular/core";
 import {AppComponent} from "./app.component";
 @Component({
   selector: 'app-nav',
-  templateUrl: './app.nav.html',
+  templateUrl: './nav.component.html',
   styleUrls: [
-    './app.nav.css',
+    './nav.component.css',
     '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
   ]
 })
