@@ -1,10 +1,5 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<app-nav [languages]="this.languages" [questions]="this.questions" (onQuestionSelected)="this.selectQuestion($event)"></app-nav>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <app-nav></app-nav>
-    </div>
-  </div>
   <div class="row">
     <div class="col-xs-12">
       <div style="text-align:center" class="header">
@@ -41,7 +36,8 @@
                     class="btn btn-primary"
                     (click)="answerQuestion()"
                     [ngClass]="{'disabled': !this.canAnswer()}"
-            >Submit</button>
+            >Submit
+            </button>
           </div>
           <br/>
           <div *ngIf="!!lastAnswer" id="codingResult">

@@ -2,9 +2,9 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Tea-Service</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item" *ngFor="let lang of this.languages"><a href="#">{{lang}}</a></li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-
-    </ul>
   </div>
 </nav>
